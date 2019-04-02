@@ -1,10 +1,9 @@
 # AmazonViewer
 your place to enjoy your hobbies
 
-# Run in Docker
-Execute this steps
+Project Design using Java SE
 
-# Run in local
-Execute this steps
-
-# Run in MongoDB
+#Themes
+-Herencia
+-Polimorfismo
+-Interfaces
