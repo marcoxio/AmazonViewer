@@ -112,18 +112,8 @@ public class Main {
             }
             if (response > 0) {
                 Movie movieSelected = movies.get(response-1);
-                movieSelected.setView(true);
-                Date dateI = movieSelected.starToSee(new Date());
+                movieSelected.view();
 
-                for (int i = 0; i < 100000; i++) {
-                    System.out.println("..........");
-                }
-
-                //Termine de verla
-                movieSelected.stopToSee(dateI, new Date());
-                System.out.println();
-                System.out.println("Viste: " + movieSelected);
-                System.out.println("Por: " + movieSelected.getTimeViewed() + " milisegundos");
             }
 
 
@@ -188,18 +178,7 @@ public class Main {
 
             if(response > 0) {
                 Chapter chapterSelected = chaptersOfSerieSelected.get(response-1);
-                chapterSelected.setView(true);
-                Date dateI = chapterSelected.starToSee(new Date());
-
-                for (int i = 0; i < 100000; i++) {
-                    System.out.println("..........");
-                }
-
-                //Termine de verla
-                chapterSelected.stopToSee(dateI, new Date());
-                System.out.println();
-                System.out.println("Viste: " + chapterSelected);
-                System.out.println("Por: " + chapterSelected.getTimeViewed() + " milisegundos");
+                chapterSelected.view();
             }
         }while(exit !=0);
     }
@@ -261,18 +240,7 @@ public class Main {
 
             if(response > 0) {
                 Books bookSelected = books.get(response-1);
-                bookSelected.setRead(true);
-                Date dateI = bookSelected.starToSee(new Date());
-
-                for (int i = 0; i < 100000; i++) {
-                    System.out.println("..........");
-                }
-
-                //Termine de verla
-                bookSelected.stopToSee(dateI, new Date());
-                System.out.println();
-                System.out.println("Leíste: " + bookSelected);
-                System.out.println("Por: " + bookSelected.getTimeRead() + " milisegundos");
+                bookSelected.view();
             }
 
         }while(exit !=0);
