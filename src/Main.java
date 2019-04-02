@@ -1,3 +1,7 @@
+import util.AmazonUtil;
+
+import java.util.Date;
+
 public class Main {
 
     /**
@@ -37,8 +41,63 @@ public class Main {
 
 
             //read response of user
+            int response = AmazonUtil.validateUserResponseMenu(0, 6);
+
+            switch (response){
+                case 0:
+                    //exit
+                    exit = 0;
+                    break;
+                case 1:
+                    showMovies();
+                    break;
+
+                case 2:
+                    showSeries();
+                    break;
+
+                case 3:
+                    showBooks();
+                    break;
+
+                case 4:
+                    showMagazines();
+                    break;
+                case 5:
+                    makeReport();
+                    break;
+
+                case 6:
+                    makeReport(new Date());
+                    break;
+                default:
+                    System.out.println();
+                    System.out.println("Elegiste una opción no valida");
+                    System.out.println();
+                    exit = 1;
+                    break;
+
+            }
 
 
         }while (exit != 0);
+    }
+
+    public static void showSeries() {
+    }
+
+    public static void makeReport(Date date) {
+    }
+
+    public static void makeReport() {
+    }
+
+    public static void showMagazines() {
+    }
+
+    public static void showBooks() {
+    }
+
+    public static void showMovies() {
     }
 }
