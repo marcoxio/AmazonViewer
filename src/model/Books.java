@@ -61,6 +61,10 @@ public class Books extends Publication implements IVisualizable{
         this.read = read;
     }
 
+    public boolean getIsRead() {
+        return read;
+    }
+
     public int getTimeRead() {
         return timeRead;
     }

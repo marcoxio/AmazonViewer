@@ -1,6 +1,8 @@
+import com.marcoxio.makereport.Report;
 import model.*;
 import util.AmazonUtil;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.concurrent.atomic.AtomicInteger;
@@ -85,7 +87,7 @@ public class Main {
 
         }while (exit != 0);
     }
-    static ArrayList<Movie> movies = new ArrayList<>();
+    static ArrayList<Movie> movies = Movie.makeMoviesList();
     public static void showMovies() {
         int exit = 1;
         do {
@@ -276,6 +278,89 @@ public class Main {
         }while(exit !=0);
     }
 
-   
+
+    public static void makeReport() {
+
+        Report report = new Report();
+        report.setNameFile("reporte");
+        report.setExtension("txt");
+        report.setTitle(":: VISTOS ::");
+        String contentReport = "";
+
+        for (Movie movie : movies) {
+            if (movie.getIsViewed()) {
+                contentReport += movie.toString() + "\n";
+
+            }
+        }
+
+        for (Serie serie : series) {
+            ArrayList<Chapter> chapters = serie.getChapters();
+            for (Chapter chapter : chapters) {
+                if (chapter.getIsViewed()) {
+                    contentReport += chapter.toString() + "\n";
+
+                }
+            }
+        }
+
+
+        for (Books book : books) {
+            if (book.getIsRead()) {
+                contentReport += book.toString() + "\n";
+
+            }
+        }
+
+        report.setContent(contentReport);
+        report.makeReport();
+        System.out.println("Reporte Generado");
+        System.out.println();
+    }
+
+    public static void makeReport(Date date) {
+        SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd-h-m-s-S");
+        String dateString = df.format(date);
+        Report report = new Report();
+
+        report.setNameFile("reporte" + dateString);
+        report.setExtension("txt");
+        report.setTitle(":: VISTOS ::");
+
+
+        SimpleDateFormat dfNameDays = new SimpleDateFormat("E, W MMM Y");
+        dateString = dfNameDays.format(date);
+        String contentReport = "Date: " + dateString + "\n\n\n";
+
+        for (Movie movie : movies) {
+            if (movie.getIsViewed()) {
+                contentReport += movie.toString() + "\n";
+
+            }
+        }
+
+        for (Serie serie : series) {
+            ArrayList<Chapter> chapters = serie.getChapters();
+            for (Chapter chapter : chapters) {
+                if (chapter.getIsViewed()) {
+                    contentReport += chapter.toString() + "\n";
+
+                }
+            }
+        }
+
+        for (Books book : books) {
+            if (book.getIsRead()) {
+                contentReport += book.toString() + "\n";
+
+            }
+        }
+        report.setContent(contentReport);
+        report.makeReport();
+
+        System.out.println("Reporte Generado");
+        System.out.println();
+    }
+
 
 }
