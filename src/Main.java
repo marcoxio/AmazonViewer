@@ -1,6 +1,9 @@
+import model.Movie;
 import util.AmazonUtil;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.concurrent.atomic.AtomicInteger;
 
 public class Main {
 
@@ -82,6 +85,48 @@ public class Main {
 
         }while (exit != 0);
     }
+    static ArrayList<Movie> movies = new ArrayList<>();
+    public static void showMovies() {
+        int exit = 1;
+        do {
+            System.out.println();
+            System.out.println(":: MOVIES ::");
+            System.out.println();
+
+            for (int i = 0; i < movies.size(); i++) { //1. Movie 1
+                System.out.println(i+1 + ". " + movies.get(i).getTitle() + " Visto: " + movies.get(i).isView());
+            }
+
+            System.out.println("0. Regresar al Menu");
+            System.out.println();
+
+            //Leer Respuesta usuario
+            int response = AmazonUtil.validateUserResponseMenu(0, movies.size());
+
+            if(response == 0) {
+                exit = 0;
+                showMenu();
+                break;
+            }
+            if (response > 0) {
+                Movie movieSelected = movies.get(response-1);
+                movieSelected.setView(true);
+                Date dateI = movieSelected.startToSee(new Date());
+
+                for (int i = 0; i < 100000; i++) {
+                    System.out.println("..........");
+                }
+
+                //Termine de verla
+                movieSelected.stopToSee(dateI, new Date());
+                System.out.println();
+                System.out.println("Viste: " + movieSelected);
+                System.out.println("Por: " + movieSelected.getTimeView() + " milisegundos");
+            }
+
+
+        }while(exit !=0);
+    }
 
     public static void showSeries() {
     }
@@ -98,6 +143,5 @@ public class Main {
     public static void showBooks() {
     }
 
-    public static void showMovies() {
-    }
+
 }

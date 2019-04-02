@@ -13,7 +13,7 @@ package model;
  *@version 1.1
  *@since 2019
  */
-public abstract class Film {
+public  class Film {
 
     private String title;
     private String genre;
@@ -95,5 +95,5 @@ public abstract class Film {
      * {@code view()} es un método abastracto obligatorio de implementar
      *
      */
-    public abstract void view();
+    //public abstract void view();
 }
