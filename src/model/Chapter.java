@@ -26,12 +26,12 @@ public class Chapter extends Movie{
         this.setSerie(serie);
     }
 
-    @Override
+
     public int getId() {
         return id;
     }
 
-    @Override
+
     public void setId(int id) {
         this.id = id;
     }

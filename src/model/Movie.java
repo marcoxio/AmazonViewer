@@ -48,22 +48,17 @@ public class Movie extends Film implements IVisualizable{
     }
 
     @Override
-    public Date startToSee(Date dateI) {
-        // TODO Auto-generated method stub
+    public Date starToSee(Date dateI) {
         return dateI;
     }
 
     @Override
     public void stopToSee(Date dateI, Date dateF) {
-        // TODO Auto-generated method stub
-
         if (dateF.getTime() > dateI.getTime()) {
             setTimeViewed((int)(dateF.getTime() - dateI.getTime()));
         }else {
             setTimeViewed(0);
         }
-
-
     }
 
     public static ArrayList<Movie> makeMoviesList() {

@@ -87,11 +87,9 @@ public class Books extends Publication implements IVisualizable{
     }
 
     @Override
-    public Date startToSee(Date dateI) {
-        // TODO Auto-generated method stub
+    public Date starToSee(Date dateI) {
         return dateI;
     }
-
 
     @Override
     public void stopToSee(Date dateI, Date dateF) {
